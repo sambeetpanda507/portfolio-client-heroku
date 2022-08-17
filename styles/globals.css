@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Faster+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @layer base {
+    html {
+      @apply scroll-smooth;
+    }
+    body {
+      @apply font-poppins mx-auto text-gray-700;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: lightgray;
+      border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: lightgray;
+    }
+  }
+}
+
+@layer components {
+  .card {
+    @apply border p-6 my-4 rounded-md shadow-lg;
+  }
+  .heading-line {
+    @apply text-2xl my-2 font-semibold relative left-2 before:content-[''] before:h-full before:w-1 before:bg-red-500 before:absolute before:-left-2 inline-block  after:content-[''] after:h-full after:w-1 after:bg-red-500 after:absolute after:-right-2;
+  }
+  .chat-bg {
+    @apply bg-[url('/images/chat_bg.jpg')] bg-no-repeat bg-center bg-fixed bg-cover;
+  }
+}
+
+.paymentTableRow > td {
+  padding: 0.8rem 0;
+}
