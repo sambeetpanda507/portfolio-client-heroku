@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import MovieHeader from '../../components/Movies/MovieHeader'
 import type { MoviesProp, NextPageWithLayout } from '../../types'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { MovieCard } from '../../components/Movies/MovieCard'
 
 const upcomingMovies: NextPageWithLayout<MoviesProp> = ({ movieData }) => {
@@ -29,7 +29,7 @@ upcomingMovies.getLayout = (page: ReactNode) => {
   return <MovieHeader title={'upcoming-movies'}>{page}</MovieHeader>
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const url = new URL('https://api.themoviedb.org/3/movie/upcoming')
   const params = {
     api_key: process.env?.NEXT_PUBLIC_TMDB_API_KEY!,
@@ -43,7 +43,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       movieData,
     },
-    revalidate: 60 * 60,
   }
 }
 

@@ -54,8 +54,6 @@ const MovieHeader: FC<MovieHeaderProps> = ({ title, children }) => {
     }
   }
 
-  console.log(searchResults)
-
   return (
     <>
       <Head>
