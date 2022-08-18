@@ -71,7 +71,7 @@ const handler: NextApiHandler = async (
           cookie.serialize('refreshToken', refreshToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            maxAge: Date.now() + 1000 * 60 * 60 * 5,
+            expires: new Date(Date.now() + 1000 * 60 * 60 * 5),
             sameSite: 'strict',
             path: '/',
           })

@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState, useRef } from 'react'
+import React, { useEffect, useMemo, useContext, useState, useRef } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 import OutMsg from './OutMsg'
 import InMsg from './InMsg'
@@ -6,8 +6,14 @@ import ChatScreenHeader from './ChatScreenHeader'
 import { IEmojiData } from 'emoji-picker-react'
 import { CommentRounded } from '@mui/icons-material'
 import MsgArea from './MsgArea'
-import { IMsgs } from '../../interfaces'
+import { IMsgs, IOnlineUsers } from '../../interfaces'
 import keyGen from '../../utils/keyGen'
+
+type selectedUserType = {
+  username: string
+  avatar: string
+  email: string
+}
 
 interface IProps {
   handleUserClick: (username: string, avatar: string, email: string) => void
@@ -15,6 +21,8 @@ interface IProps {
   msgs: IMsgs
   handleSendMsg: (msg: string) => void
   handleFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onlineUsers: IOnlineUsers[]
+  setSelectedUser: React.Dispatch<React.SetStateAction<selectedUserType>>
 }
 
 //no chat component
@@ -37,9 +45,11 @@ const ChatScreen: React.FC<IProps> = (props) => {
   const {
     handleUserClick,
     selectedUser,
+    setSelectedUser,
     msgs,
     handleSendMsg,
     handleFileChange,
+    onlineUsers,
   } = props
   const { user: self } = useContext(AuthContext)
   const [choosenEmoji, setChoosenEmoji] = useState<string>('')
@@ -49,6 +59,26 @@ const ChatScreen: React.FC<IProps> = (props) => {
   const fileRef = useRef<HTMLInputElement>(null)
   const textAreaRef = useRef<HTMLTextAreaElement>(null)
   const chatScreenRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    let willUnmount: boolean = false
+
+    const foundIndex: number = onlineUsers.findIndex(
+      (user) => user.name === selectedUser.username
+    )
+
+    if (!willUnmount && foundIndex === -1 && selectedUser.username.length) {
+      setSelectedUser({
+        avatar: '',
+        email: '',
+        username: '',
+      })
+    }
+
+    return () => {
+      willUnmount = true
+    }
+  }, [onlineUsers, selectedUser.username, setSelectedUser])
 
   useEffect(() => {
     if (showEmojiPicker === false) textAreaRef?.current?.focus()

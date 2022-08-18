@@ -354,6 +354,8 @@ const Talk: FC<ITalkProp> = ({ auth, user }) => {
           <ChatScreen
             handleUserClick={handleUserClick}
             selectedUser={selectedUser}
+            setSelectedUser={setSelectedUser}
+            onlineUsers={onlineUsers}
             msgs={msgs}
             handleSendMsg={handleSendMsg}
             handleFileChange={handleFileUpload}
@@ -372,6 +374,8 @@ const Talk: FC<ITalkProp> = ({ auth, user }) => {
         <ChatScreen
           handleUserClick={handleUserClick}
           selectedUser={selectedUser}
+          setSelectedUser={setSelectedUser}
+          onlineUsers={onlineUsers}
           msgs={msgs}
           handleFileChange={handleFileUpload}
           handleSendMsg={handleSendMsg}
