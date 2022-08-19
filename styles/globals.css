@@ -51,3 +51,14 @@
 .paymentTableRow > td {
   padding: 0.8rem 0;
 }
+
+.modelContainer {
+  height: 100%;
+  width: 100%;
+}
+
+.modelContainer > * {
+  height: 100%;
+  width: 100%;
+  transform: scale(1.2);
+}
