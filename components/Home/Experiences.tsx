@@ -55,7 +55,7 @@ const experienceCardData: experienceCardType[] = [
     startDate: 'Dec 2020',
     endDate: 'Feb 2021',
     responsibility: [
-      'Created homepage and lading pages with html and css',
+      'Created homepage and landing pages with html and css',
       'Created virtual host connection with nginx',
       'Worked on Figma design tools',
     ],

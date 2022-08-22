@@ -129,7 +129,7 @@ const ChatApp: FC = () => {
           Features
         </h3>
         <ul className="list-disc ml-4">
-          <li>Pear to pear chat private chat.</li>
+          <li>Pear to pear private chat.</li>
           <li>Send emojis.</li>
           <li>Send images.</li>
           <li>Debounced search from the list of online users.</li>

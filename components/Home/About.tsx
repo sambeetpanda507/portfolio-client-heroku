@@ -39,7 +39,7 @@ const cardData: cardType[] = [
     id: 2,
     cardTitle: 'Backend Development',
     description:
-      'I use node js and express js for backend development. I prefer using typescript as the programing language. I write REST apis and GraphQL apis. I prefer to use mongodb for my database with mongoose as the ODM.',
+      'I use node js and express js for backend development. I prefer using typescript as the programing language. I write REST apis. I prefer to use mongodb for my database with mongoose as the ODM.',
     icon: <CodeIcon />,
   },
   {
