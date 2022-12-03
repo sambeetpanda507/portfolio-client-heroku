@@ -71,7 +71,7 @@ const CollegeSearch: FC = () => {
           <li>Search engineering colleges based on states.</li>
           <li>Graphical representation of different colleges.</li>
           <li>Tabular representation of different colleges.</li>
-          <li>Get list of sudents and their details.</li>
+          <li>Get list of students and their details.</li>
         </ul>
         <h3 className="font-semibold text-xl tracking-wide capitalize my-2">
           technology used
@@ -129,7 +129,7 @@ const ChatApp: FC = () => {
           Features
         </h3>
         <ul className="list-disc ml-4">
-          <li>Pear to pear private chat.</li>
+          <li>Peer to peer private chat.</li>
           <li>Send emojis.</li>
           <li>Send images.</li>
           <li>Debounced search from the list of online users.</li>
